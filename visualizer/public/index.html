@@ -29,9 +29,6 @@
                     <a-asset-item crossorigin="anonymous" id="game-obj" src="/assets/models/game.obj">
                     <a-asset-item crossorigin="anonymous" id="button" src="/assets/models/button.obj">
                     <a-asset-item crossorigin="anonymous" id="buttonRing" src="/assets/models/buttonRing.obj">
-                    <a-asset-item crossorigin="anonymous" id="slot" src="/assets/models/slot.obj">
-                    <a-asset-item crossorigin="anonymous" id="tickets" src="/assets/models/tickets.obj">
-                    <a-asset-item crossorigin="anonymous" id="floor" src="/assets/models/floor.obj">
 
                     <!-- use this method if you are having problems with sound playing -->
                     <!-- sounds from "SuperSays" project : https://github.com/supermedium/supersays/tree/master/src/assets -->
@@ -64,21 +61,16 @@
                 <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
             
                 <!-- *****Button and buttonring***** -->
-                <a-entity duck-01 duck-02 duck-03 duck-04 obj-model="obj:#button;" position="-1.5 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E85854" ></a-entity>
-                <a-entity obj-model="obj:#buttonRing;" position="-1.5 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E5ECED" ></a-entity>
+                <a-entity sound-01 sound-02 sound-03 sound-04 obj-model="obj:#button;" position="0 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E85854" ></a-entity>
+                <a-entity obj-model="obj:#buttonRing;" position="0 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E5ECED" ></a-entity>
 
-                <!-- *****GAME BOARD calls front right***** -->
-                <a-entity  obj-model="obj:#game-obj;" position="0 0 -5" scale="0.4 0.4 0.4" rotation="30 0 0" material="color:#FF9900">
-                <a-entity  obj-model="obj:#floor;" position="0 -8 0" scale="0.2 0.2 0.2" rotation="0 0 0" material="color:#000000"></a-entity>
-            
 
-                <!-- *****SLOT and TICKETS***** -->
-                <a-entity  obj-model="obj:#slot;" position="2 0.9 4" scale="0.4 0.4 0.4" rotation="0 0 0" material="color:#E5ECED">
-
+                <!-- *****Animation***** 
                 <a-entity  obj-model="obj:#tickets;" position="0 0 0" scale="0.8 0.8 0.8" rotation="0 0 0" material="color:#FFFFFF">
                     <a-animation attribute="position" begin="click" direction="alternate" dur="2000" repeat="0" to="0 0.2 -3"></a-animation>
                 </a-entity>
-                    
+            -->
+        
                 <!-- plane so we can see shadows 
                 <a-entity id="plane" geometry="primitive:plane; width:4; height:4;" position="0 0 -4" rotation="-90 0 0" 
                     shadow="receive:true;" material="color:#7BC8A4; sphericalEnvMap:#skymap; roughness:0.5; metalness:0.0;"></a-entity>-->

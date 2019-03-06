@@ -1,6 +1,6 @@
 //*****DUCK FRONT LEFT*****
 
-AFRAME.registerComponent('duck-01', {
+AFRAME.registerComponent('sound-01', {
     schema: {},
     init : function() {
         const Context_AF = this;
@@ -23,10 +23,10 @@ AFRAME.registerComponent('duck-01', {
         //see here: https://www.html5rocks.com/en/tutorials/speed/static-mem-pools/ 
         //see here: https://aframe.io/docs/0.8.0/components/pool.html
         let cowElem = document.createElement('a-entity');
-        cowElem.setAttribute('obj-model', {obj:'/assets/models/duck.obj'});
+        cowElem.setAttribute('obj-model', {obj:'/assets/models/box.obj'});
         //cowElem.setAttribute('material', {src:'/assets/textures/Cow.png'});
         cowElem.setAttribute('remove-component', {}); 
-        cowElem.setAttribute('position', {x:-0.85, y:0, z:-3.75} );
+        cowElem.setAttribute('position', {x:-3, y:0, z:-4} );
         cowElem.setAttribute('scale', {x:1.2, y:1.2, z:1.2});
         
         let scene = document.querySelector('a-scene');
