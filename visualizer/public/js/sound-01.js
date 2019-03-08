@@ -18,6 +18,22 @@ AFRAME.registerComponent('sound-01', {
     createCow : function() {
         const Context_AF = this;
 
+        let source = '#createSound';
+        let masterGain;
+        var audioContext = new (window.AudioContext);
+        masterGain = audioContext.createGain();
+        masterGain.connect(audioContext.destination);
+        let song = new Audio(source);
+        songSource = audioContext.createMediaElementSource(song);
+        songSource.connect(masterGain);
+        song.play();
+        const analyser = audioContext.createAnalyser();
+        masterGain.connect(analyser);
+        function updateWaveform() {
+        requestAnimationFrame(updateWaveform);
+        var dataArray = new Float32Array(analyser.frequencyBinCount);
+        analyser.getFloatTimeDomainData(dataArray);
+        };
         //create element, than add attributes you want. If you are creating many =you want to 
         //consider "pooling" elements (i.e. not creating/deleting a bunch but just hiding/showing a certain MAX amount with visibility="true" or "false" )
         //see here: https://www.html5rocks.com/en/tutorials/speed/static-mem-pools/ 
@@ -28,6 +44,7 @@ AFRAME.registerComponent('sound-01', {
         cowElem.setAttribute('remove-component', {}); 
         cowElem.setAttribute('position', {x:-3, y:0, z:-4} );
         cowElem.setAttribute('scale', {x:1.2, y:1.2, z:1.2});
+        cowElem.setAttribute('material', "color:#000000");
         
         let scene = document.querySelector('a-scene');
         scene.appendChild(cowElem);

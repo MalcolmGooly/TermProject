@@ -28,6 +28,7 @@ AFRAME.registerComponent('sound-04', {
         cowElem.setAttribute('remove-component', {}); 
         cowElem.setAttribute('position', {x:-1, y:0.7, z:-5.25});
         cowElem.setAttribute('scale', {x:1.2, y:1.2, z:1.2});
+        cowElem.setAttribute('material', "color:#000000");
         
         let scene = document.querySelector('a-scene');
         scene.appendChild(cowElem);

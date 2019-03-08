@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello, WebVR! - A-Frame</title>
+        <title>Music Visualizer</title>
         <meta name="description" content="Hello, WebVR! - A-Frame">
         <script src="/js/aframe.min.js"></script>
         <script src="/js/spherical-env-map.js"></script>
@@ -12,6 +12,7 @@
         <script src="/js/sound-02.js"></script>
         <script src="/js/sound-03.js"></script>
         <script src="/js/sound-04.js"></script>
+        <script src="/js/pillars.js"></script>
         <script src="/js/remove-component.js"></script>
     </head>
     <body>
@@ -64,13 +65,13 @@
                 <a-entity sound-01 sound-02 sound-03 sound-04 obj-model="obj:#button;" position="0 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E85854" ></a-entity>
                 <a-entity obj-model="obj:#buttonRing;" position="0 -0.03 -3.3" scale="0.15 0.15 0.15" rotation="30 0 0" material="color:#E5ECED" ></a-entity>
 
-
+                <a-entity light="type: ambient; color: #CCC" position="1 1 -5"></a-entity>
                 <!-- *****Animation***** 
                 <a-entity  obj-model="obj:#tickets;" position="0 0 0" scale="0.8 0.8 0.8" rotation="0 0 0" material="color:#FFFFFF">
                     <a-animation attribute="position" begin="click" direction="alternate" dur="2000" repeat="0" to="0 0.2 -3"></a-animation>
                 </a-entity>
             -->
-        
+
                 <!-- plane so we can see shadows 
                 <a-entity id="plane" geometry="primitive:plane; width:4; height:4;" position="0 0 -4" rotation="-90 0 0" 
                     shadow="receive:true;" material="color:#7BC8A4; sphericalEnvMap:#skymap; roughness:0.5; metalness:0.0;"></a-entity>-->
