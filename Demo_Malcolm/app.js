@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/Demo_Malcolm'));
 
 //set routes
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + 'Demo_Malcolm/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 //!!TRY: create another route to point to another web page
