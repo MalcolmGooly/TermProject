@@ -4,7 +4,7 @@ AFRAME.registerComponent('pillars', {
         const Context_AF = this;
         Context_AF.soundElem = document.querySelector('#createSound');
 
-        let source = '#createSound';
+        let source = 'assets/traffic (prod. by nxghts) 150bpm.mp3';
         let masterGain;
         var audioContext = new (window.AudioContext);
         masterGain = audioContext.createGain();
