@@ -32,10 +32,11 @@ AFRAME.registerComponent('menu', {
 			})
 			this.el.appendChild(plane)
 
-			
+			//问题标记：这样Item的扩展性为0，7个就得懵了
 
 			const rotated = i !== 1 && i !== 4
 			const moveForward = 0.07
+
 
 			if (i < 4) {
 				//top row
@@ -44,7 +45,6 @@ AFRAME.registerComponent('menu', {
 				//bottom row
 				plane.setAttribute('position', `${(i - 5.5)} -0.76 0}`)
 			}
-
 			// const angle = 8
 			// if (i === 0 || i === 3) {
 			// 	plane.setAttribute('rotation', `0 ${angle} 0`)
@@ -52,7 +52,7 @@ AFRAME.registerComponent('menu', {
 			// 	plane.setAttribute('rotation', `0 ${-angle} 0`)
 			// }
 
-			
+			//每个Item添加监听事件
 			plane.addEventListener('click', () => {
 				if (Date.now() - lastClick > 500) {
 					lastClick = Date.now()
@@ -65,15 +65,15 @@ AFRAME.registerComponent('menu', {
 				const trackClone = {}
 				Object.assign(trackClone, track)
 				if (!plane.getAttribute('menu-item').selected) {
-				
+					//触发选中事件
 					this.el.emit('select', trackClone)
 				} else {
-				
+					//触发取消选择事件
 					this.el.emit('unSelect', trackClone)
 				}
 			})
 		})
-	
+		//事件处理
 		//？？？？let beatParticle = document.getElementById("beatParticle");
 		this.el.addEventListener('select', (track) => {
 			console.log("选择" + track.detail.text);

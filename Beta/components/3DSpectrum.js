@@ -17,6 +17,7 @@ AFRAME.registerComponent('levels-scale', {
     let children;
     let levels;
    
+    
     let colors = this.colors;
     this.noisePos += 0.005;
     colors.push((this.perlin.noise(this.noisePos, this.noisePos, 0)));
