@@ -13,5 +13,14 @@
   "dependencies": {
     "aframe": "^0.9.0",
     "shader-particle-engine": "^1.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MalcolmGooly/TermProject.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/MalcolmGooly/TermProject/issues"
+  },
+  "homepage": "https://github.com/MalcolmGooly/TermProject#readme"
 }
