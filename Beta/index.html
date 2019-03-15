@@ -24,76 +24,18 @@
                 material="color: black; shader: flat"></a-entity>
         </a-entity>
 
- <!--
+ 
 
          Menu 
-                <a-entity menu-item="analyserEl: #analyser; camera:#camera" position="0 2 -2" scale="0.75 0.75 1" id="menu" class="clickable"> 
-                
-                <a-text value="Levels" align="center" 
-                material="shader:flat" 
-                color="white" 
-                wrap-count="20" 
-                width="1" 
-                side="double" 
-                scale="1 1.3333333333333333 1" 
-                position="0 0.08 0" 
-                text=""></a-text>
 
-                <a-text value="ZHeight Color" 
-                align="center" 
-                material="shader:flat" 
-                color="white"
-                 wrap-count="26"
-                 width="1" 
-                 side="double" 
-                 scale="1 1.3333333333333333 1" 
-                 position="0 -0.1 0" 
-                 text=""></a-text>
-                 <a-plane material="color:rgb(30, 30, 30);shader:flat;side:double;transparent:true;opacity:0.5" 
-                 class="selectable" 
-                 scale="1.431 1.431 3.848" 
-                 geometry=""></a-plane>
-                </a-entity>
-
-                <a-entity menu-item="text:Waveform;subText:ZHeight Color Opacity" 
-                position="-0.5 0 0" 
-                scale="0.95 0.7125 0.95" 
-                visible="false" 
-                material="side:double;transparent:true;opacity:0.5">
-                <a-text value="Waveform" align="center" 
-                material="shader:flat" 
-                color="white" 
-                wrap-count="20" 
-                width="1" 
-                side="double" 
-                scale="1 1.3333333333333333 1" 
-                position="0 0.08 0" 
-                text="" visible="false"></a-text>
-
-                <a-text value="ZHeight Color Opacity" align="center" 
-                material="shader:flat" 
-                color="white" 
-                wrap-count="26" 
-                width="1" 
-                side="double" 
-                scale="1 1.3333333333333333 1" 
-                position="0 -0.1 0" 
-                text="" 
-                visible="false"></a-text>
-                <a-plane material="color:rgb(30, 30, 30);shader:flat;side:double;transparent:true;opacity:0.5" 
-                class="selectable" 
-                visible="false" 
-                geometry=""></a-plane>
-            </a-entity>
-        </a-entity>
-    
--->
-   
         <a-entity menu="analyserEl: #analyser; camera:#camera" position="0 2 -2" scale="0.75 0.75 1" id="menu" class="clickable">
                 <a-animation begin="shrink" attribute="position" to="0 1.8 -2" dur="1000" easing="ease-out"></a-animation>
                 <a-animation begin="shrink" attribute="scale" to="0.5 0.5 1" dur="1000" easing="ease-out"></a-animation>
                 <a-animation begin="grow" attribute="position" to="0 2 -2" dur="2000" easing="ease-out"></a-animation>
                 <a-animation begin="grow" attribute="scale" to="0.75 0.75 1" dur="2000" easing="ease-out"></a-animation>
+
+           
+                
             </a-entity>
         
 
@@ -117,7 +59,9 @@
         </a-entity>
 
         <!-- Analyser -->
-        <a-entity id="analyser" audioanalyser="src: #song"></a-entity>
+        <a-entity id="analyser" audioanalyser="src: #song">
+            
+        </a-entity>
         
         <!-- Spectrum visualization. -->
         <a-entity levels-scale="analyserEl: #analyser; max: 50; multiplier: 0.06" entity-generator="mixin: bar;"
