@@ -2,7 +2,7 @@
   "name": "WebVR_Audio_Visualizer",
   "version": "0.0.1",
   "description": "WebVR test",
-  "author": "todaylg",
+  "author": "",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^1.2.0"
@@ -10,6 +10,17 @@
   "scripts": {
     "deploy": "parcel build index.html --public-url /WebVR-Audio-Visualizer/ && gh-pages -d dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MalcolmGooly/TermProject.git"
+  },
+  "main": "index.js",
+  
+    "keywords": [],
+    "bugs": {
+      "url": "https://github.com/MalcolmGooly/TermProject/issues"
+    },
+    "homepage": "https://github.com/MalcolmGooly/TermProject#readme",
   "dependencies": {
     "aframe": "^0.9.0",
     "shader-particle-engine": "^1.0.6"

@@ -3,19 +3,19 @@
 <head>
     <title>Music</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/72345d36a87a2c9e1225ae38eb88d7b9.css">
-    <script src="/7ab92c1898404b32a293ae8501a733f9.js"></script>
-</head>
+    <link rel="stylesheet" href="/BeginPanel.eb88d7b9.css">
+    <script src="/build.01a733f9.js"></script>
+<script src="/BeginPanel.eb88d7b9.js"></script></head>
 
 <body>
     <a-scene antialias="true">
         <a-assets>
             <a-mixin id="bar" geometry="primitive: box" material="color: black;opacity:0.5;"></a-mixin>
-            <audio id="song" loop="" src="/2b37ba0d217de1b0cdfc20fba9f8e228.%20by%20nxghts)%20150bpm"></audio>
-            <img id="play_button" src="/602e4ee97eed80b0708ea744214f6e06.png">
-            <img id="pause_button" src="/60b7dd297bea900077ad90a7a0c3b342.png">
-            <img id="floor" src="/4f389bf86da22e4fee834716db4a06fd.jpg">
-            <img id="skyBox" src="/46fd81842be7caa43a4b5b4dc94b2330.jpg">
+            <audio id="song" loop="" src="/traffic (prod. by nxghts) 150bpm.6da83771.mp3"></audio>
+            <img id="play_button" src="/play.214f6e06.png">
+            <img id="pause_button" src="/pause.a0c3b342.png">
+            <img id="floor" src="/floor.db4a06fd.jpg">
+            <img id="skyBox" src="/sky.c94b2330.jpg">
         </a-assets>
 
         <!-- Camera -->
@@ -23,7 +23,7 @@
             <a-entity raycaster="objects: .clickable" cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat"></a-entity>
         </a-entity>
 
-<!--
+ <!--
 
          Menu 
                 <a-entity menu-item="analyserEl: #analyser; camera:#camera" position="0 2 -2" scale="0.75 0.75 1" id="menu" class="clickable"> 
@@ -85,8 +85,9 @@
                 geometry=""></a-plane>
             </a-entity>
         </a-entity>
-    -->
-
+    
+-->
+   
         <a-entity menu="analyserEl: #analyser; camera:#camera" position="0 2 -2" scale="0.75 0.75 1" id="menu" class="clickable">
                 <a-animation begin="shrink" attribute="position" to="0 1.8 -2" dur="1000" easing="ease-out"></a-animation>
                 <a-animation begin="shrink" attribute="scale" to="0.5 0.5 1" dur="1000" easing="ease-out"></a-animation>

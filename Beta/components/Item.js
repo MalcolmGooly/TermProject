@@ -58,20 +58,6 @@ AFRAME.registerComponent('menu-item', {
 
 		bgElement.setAttribute('material', `shader: flat; color: ${this.darkGray}; side: double; transparent: true; opacity: 0.5`)
 		bgElement.classList.add('selectable')
-
-		//clickmenu
-		this.el.addEventListener('click', () => {
-			if (!this.data.selected) {
-				bgElement.setAttribute('material', 'color', 'green')
-			} else {
-				bgElement.setAttribute('material', 'color', this.darkGray)
-			}
-			this.data.selected = !this.data.selected;
-		})
-		
-		this.el.addEventListener('changeSubText', (text) => {
-			subText.setAttribute('value', text.detail)
-		})
 	},
 
 	_makeBorder(entered) {
