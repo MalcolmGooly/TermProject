@@ -15,7 +15,7 @@ const server    = http.createServer(app);
 const LISTEN_PORT = 8080;
 
 //middleware
-app.use(express.static(__dirname + '/Beta'));
+app.use(express.static(__dirname + '/public'));
 
 //set routes
 app.get('/', function(req, res) {
