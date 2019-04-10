@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <title>Music</title>
+    <meta charset="utf-8" />
+
+    
+ <!--    <script src="spherical-env-map.js"></script>   -->
+
+    <link rel="stylesheet" href="./components/beginPanel/BeginPanel.css">
+
+  <script src="./dist/build.js"></script>  
+
+  <!-- 
+    <script type="module" src="components/beginPanel/BeginPanel.js"></script>
+    <script type="module" src="components/3DSpectrum.js"></script>
+    <script type="module" src="components/AudioAnalyser.js"></script>
+    <script src="components/Item.js"></script>
+    <script src="components/Layout.js"></script>
+    <script src="components/Menu.js"></script>
+    <script src="components/playButton.js"></script>
+
+    <script type="module" src="lib/Beatdetektor.js"></script>
+    <script src="lib/Maf.js"></script>
+    <script src="lib/SPE.min.js"></script>
+    <script type="module" src="lib/THREE.PingPongTexture.js"></script>
+    <script type="module" src="lib/THREE.ShaderTexture.js"></script>
+
+    <script type="module" src="scripts/config.js"></script>
+    <script type="module" src="scripts/EnvEffect.js"></script>
+    <script type="module" src="scripts/perlinNoise.js"></script>
+    <script type="module" src="scripts/PreAnalysis.js"></script>
+    <script type="module" src="scripts/RealTimeDetect.js"></script>
+    <script src="scripts/WebAudioShim.js"></script>
+
+    <script src="aframe.min.js"></script>
+
+    <script type="module" src="index.js"></script>
+-->
+</head>
+
+<body>
+    <a-scene antialias="true">
+        <a-assets>
+            <a-mixin id="bar" geometry="primitive: box" material="color: black;opacity:0.5;"></a-mixin>
+            <a-mixin id="fire" fire="analyserEl: #analyser;"></a-mixin>
+
+            <div id = "song">
+            <audio id="song1" loop src="assets/audio/stems/keys.wav"></audio>
+            <audio id="song2" loop src="assets/audio/stems/vocal.wav"></audio>
+            <audio id="song3" loop src="assets/audio/stems/lead.wav"></audio>
+            <audio id="song4" loop src="assets/audio/stems/bass.wav"></audio>
+            <audio id="song5" loop src="assets/audio/stems/kick.wav"></audio>
+            <audio id="song6" loop src="assets/audio/stems/snare.wav"></audio>
+            <audio id="song7" loop src="assets/audio/stems/hats.wav"></audio>
+            <audio id="song8" loop src="assets/audio/stems/percs.wav"></audio>
+            </div>
+
+            <img id="play_button" src="assets/images/play.png">
+            <img id="pause_button" src="assets/images/pause.png">
+            <img id="floor" src="assets/images/floor.jpg">
+            <img id="skyBox" src="assets/images/sky.jpg">
+            <a-asset-item crossorigin="anonymous" id="mountain-gltf" src="assets/mountain.glb">
+        </a-assets>
+
+        <a-gltf-model src="#mountain-gltf" scale="1 1 1" material="color:#778899" shadow="receive: true"></a-entity>
+
+            </a-animation>
+        </a-obj-model>
+
+
+        <!-- Camera -->
+        <a-entity id='camera' camera="userHeight: 1.6;" look-controls wasd-controls="enabled:true;" position="0 0 1.5" rotation='20 0 0'>
+            <a-entity raycaster="objects: .clickable" cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: black; shader: flat"></a-entity>
+        </a-entity>
+
+        <!-- Menu -->
+        <a-entity menu="analyserEl: #analyser; camera:#camera" position="0 2 -2" scale="0.75 0.75 1" id="menu" class="clickable">
+            <a-animation begin="shrink" attribute="position" to="0 1.8 -2" dur="1000" easing="ease-out"></a-animation>
+            <a-animation begin="shrink" attribute="scale" to="0.5 0.5 1" dur="1000" easing="ease-out"></a-animation>
+            <a-animation begin="grow" attribute="position" to="0 2 -2" dur="2000" easing="ease-out"></a-animation>
+            <a-animation begin="grow" attribute="scale" to="0.75 0.75 1" dur="2000" easing="ease-out"></a-animation>
+        </a-entity>
+
+        <!-- Play button -->
+        <a-entity class="clickable" playbutton="analyserEl: #analyser;playing:true; visible: true" position="0 1 -2" id="playButton"
+            animate="attribute:scale; time:100;" rotation="90 0 0">
+            <a-entity>
+                <a-plane src="#pause_button" material="transparent: true" scale="0.9 0.9 0.9" position="0 0.52 0" rotation="-90 0 0"></a-plane>
+                <a-circle class="selectable" material="color: white; shader: flat;" rotation="-90 0 0">
+                    <a-animation begin="mouseenter" attribute="material.color" to="rgb(100, 100, 100)" dur="0"></a-animation>
+                    <a-animation begin="mouseleave" attribute="material.color" to="white" dur="0"></a-animation>
+                </a-circle>
+                <a-cylinder material="color: rgb(80, 80, 80); shader: flat;" position="0 -0.52 0" rotation="0 0 0">
+                </a-cylinder>
+                <a-animation begin="mousedown" attribute="scale" to="1 0.5 1" dur="1000"></a-animation>
+                <a-animation begin="mousedown" attribute="position" to="0 -0.5 0" dur="1000"></a-animation>
+                <a-animation begin="mouseup" attribute="scale" to="1 1 1" dur="1000"></a-animation>
+                <a-animation begin="mouseup" attribute="position" to="0 0 0" dur="1000"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <!-- Analyser -->
+        <a-entity id="analyser" audioanalyser="src: #song"></a-entity>
+
+        <!-- Spectrum visualization. -->
+        <a-entity levels-scale="analyserEl: #analyser; max: 50; multiplier: 0.06" entity-generator="mixin: bar;"
+            layout="type: circle; radius: 11" rotation="0 180 0"></a-entity>
+
+
+        <!-- Lights, sky, ground. -->
+        <a-entity light="type: directional; castShadow: true;" position="1 1 1"></a-entity>
+
+        <a-sky src="#skyBox"></a-sky>
+        <a-entity id="ground" geometry="primitive: circle; radius: 40" rotation="-90 0 0" material="src: #floor"></a-entity>
+
+        <!-- Env. -->
+        <!-- <a-entity snow-env="analyserEl: #analyser;"></a-entity> -->
+    </a-scene>
+
+    <!-- Begin Panel -->
+    <div id="beginPanel">
+        
+        <div class="main">
+            <div class="logo">
+                <img src="./assets/images/bill.jpg">
+            </div>   
+        </div>
+
+        <div class="wrapper" id="wrapper" style="flex:auto;">
+            <label class="button" for="file">
+                CHOOSE A FILE
+                <input id="file" type="file">
+            </label>
+            <label class="button" id="beginBtn">></label>
+            <label class="button" id="singBtn">DO IT YOURSELF</label>
+             
+
+        </div>
+            <ul>
+                <li class="active"><a href="#">Song 1<br/>M&J      |      4:53</a></li>
+                <li><a href="#">Song 2<br/>M&J      |      3:45</a></li>
+                <li><a href="#">Song 3<br/>M&J      |      7:30</a></li>
+                <li><a href="#">Song 4<br/>M&J      |      2:15</a></li>
+                <li><a href="#">Song 5<br/>J&M      |      4:47</a></li>
+            </ul> 
+    </div>
+</body>
+
+<footer>            
+          
+</footer>
+
+</html>
